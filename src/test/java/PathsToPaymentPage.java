@@ -148,18 +148,25 @@ public class PathsToPaymentPage extends Base{
     }
 
     @Test
-    @Tag("ParcelToHome")
-    public void () {
+    @Tag("InvoicePath")
+    @DisplayName("CompanyInPolandInvoicePath")
+    public void companyInPolandInvoice () {
 
         formPage.clickParcelHome();
-
         formPage.clickC();
 
         recipientForm.fillParcelToHomeRecepiantForm();
-
         senderForm.fillSenderForm();
 
         senderForm.clickInvoiceCHeckMark();
+
+        senderForm.ClickCompanyInPoland();
+
+        senderForm.fillNipCode("6793087624");
+
+        senderForm.fillCompanyFlatNo("2");
+
+        senderForm.fillCompanyEmail(" inpost@inpost.pl");
 
         consent.check();
 
@@ -170,7 +177,5 @@ public class PathsToPaymentPage extends Base{
         paymentPage.clickVisa();
 
     }
-
-
 
 }
