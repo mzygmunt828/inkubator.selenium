@@ -14,15 +14,18 @@ public class ForeignCompanyForm {
 
 
     @FindBy ( name = "invoice.foreignCompany.nip" )
+    private WebElement foreignNipPrefix;
+
+    @FindBy ( name = "invoice.foreignCompany.nip" )
     private WebElement foreignNipNumber;
 
     @FindBy ( name = "invoice.foreignCompany.companyName" )
     private WebElement foreignName;
 
-    @FindBy ( xpath = "/html/body/app-root/app-public-layout/div/div[2]/app-home/section/div[2]/div[4]/div/app-parcel-form/div/div/div[1]/app-dynamic-form/form/app-section[22]/div/app-input/div/div/div/app-complex-select/ng-select/div/div/div[2]" )
+    @FindBy ( xpath = "/html/body/app-root/app-public-layout/div/div[2]/app-home/section/div[2]/div[4]/div/app-parcel-form/div/div/div[1]/app-dynamic-form/form/app-section[22]/div/app-input/div/div/div/app-complex-select/ng-select/div/div/div[3]/input")
     private WebElement countryOne;
 
-    @FindBy ( xpath = "//div[@class = 'ng-dropdown-panel-items scroll-host']" )
+    @FindBy ( xpath = "/html/body/app-root/app-public-layout/div/div[2]/app-home/section/div[2]/div[4]/div/app-parcel-form/div/div/div[1]/app-dynamic-form/form/app-section[27]/div/app-input/div/div/div/app-complex-select/ng-select/ng-dropdown-panel/div/div[2]/div[1]/span" )
     private WebElement country;
 
     @FindBy ( name = "invoice.foreignCompany.zipCode" )
@@ -50,13 +53,19 @@ public class ForeignCompanyForm {
     public void fillCompanyName(String string){
         foreignName.sendKeys( string );
     }
+
+    public void fillNipNumber(String string){
+        foreignNipNumber.sendKeys( string );
+    }
+
     public void clickCountry(){
         countryOne.click();
+        waitPage.waitUntilElement(country);
         country.click();
     }
 
-    public void fillNipCode(String string){
-        foreignNipNumber.sendKeys( string );
+    public void fillNipCode(){
+        foreignNipPrefix.click();
     }
 
     public void fillCompanyBuildingNo(String string){

@@ -244,11 +244,11 @@ public class PathsToPaymentPage extends Base{
 
         senderForm.clickForeignCompanyCheckMark();
 
-      //  foreignCompanyForm.fillNipCode("3902");
-
         foreignCompanyForm.fillCompanyName("bilbao");
 
-      //  foreignCompanyForm.clickCountry();
+        foreignCompanyForm.fillNipCode();
+
+       // foreignCompanyForm.clickCountry();
 
         foreignCompanyForm.fillZipCode("12432");
 
@@ -269,28 +269,6 @@ public class PathsToPaymentPage extends Base{
         summaryPage.clickPayButton();
 
         paymentPage.clickVisa();
-
-    }
-
-
-    @Test
-    @Tag("InvoicePath")
-    @DisplayName("ForeignCompanyInvoice")
-    public void voice () throws InterruptedException {
-
-        formPage.clickParcelHome();
-        formPage.clickC();
-
-        recipientForm.fillParcelToHomeRecepiantForm();
-        senderForm.fillSenderForm();
-
-        senderForm.clickInvoiceCHeckMark();
-
-        senderForm.clickForeignCompanyCheckMark();
-
-        foreignCompanyForm.clickCountry();
-
-        foreignCompanyForm.fillZipCode("12432");
 
     }
 
