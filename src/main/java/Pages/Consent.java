@@ -16,6 +16,7 @@ public class Consent {
 
     @FindBy (xpath = "//label[@for ='newsletter']/div")
     private WebElement newsletterCheckBox;
+
     @FindBy(xpath = "//button[@class ='btn btn-primary btn-lg position-relative with-loader w-100']")
     private WebElement summaryButton;
 
@@ -24,7 +25,7 @@ public class Consent {
         PageFactory.initElements(Base.driver, this);
     }
 
-    public void check(){
+    public void check() {
         actionPage.scrollToElement(termsCheckBox);
         termsCheckBox.click();
         newsletterCheckBox.click();

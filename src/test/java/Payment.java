@@ -427,7 +427,7 @@ paymentPage.clickIPKO();
     }
 
 
-    public void fillAllFormsAndGoToPaymentSite(){
+    public void fillAllFormsAndGoToPaymentSite() throws InterruptedException {
         formPage.clickParcelHome();
         formPage.clickA();
 

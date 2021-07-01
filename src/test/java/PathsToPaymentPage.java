@@ -2,7 +2,6 @@ import Pages.*;
 import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.interactions.Actions;
 
-import Pages.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -16,6 +15,9 @@ public class PathsToPaymentPage extends Base{
         private Consent consent = new Consent();
         private SummaryPage summaryPage = new SummaryPage();
         private PaymentPage paymentPage = new PaymentPage();
+        private CompanyInPolandForm companyInPolandForm = new CompanyInPolandForm();
+        private IndividualCustomerForm individualCustomerForm = new IndividualCustomerForm();
+        private ForeignCompanyForm foreignCompanyForm = new ForeignCompanyForm();
 
 
     @Before
@@ -33,7 +35,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToParcel")
-    public void EasyPathWithSizeA(){
+    public void EasyPathWithSizeA() throws InterruptedException {
 
         formPage.clickA();
 
@@ -51,7 +53,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToParcel")
-    public void EasyPathWithSizeB(){
+    public void EasyPathWithSizeB() throws InterruptedException {
 
         formPage.clickB();
 
@@ -69,7 +71,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToParcel")
-    public void EasyPathWithSizeC() {
+    public void EasyPathWithSizeC() throws InterruptedException {
 
         formPage.clickC();
 
@@ -87,7 +89,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToHome")
-    public void EasyParcelToHomePathWithSizeA() {
+    public void EasyParcelToHomePathWithSizeA() throws InterruptedException {
 
         formPage.clickParcelHome();
 
@@ -107,7 +109,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToHome")
-    public void EasyParcelToHomePathWithSizeB() {
+    public void EasyParcelToHomePathWithSizeB() throws InterruptedException {
 
         formPage.clickParcelHome();
 
@@ -127,7 +129,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToHome")
-    public void EasyParcelToHomePathWithSizeC() {
+    public void EasyParcelToHomePathWithSizeC() throws InterruptedException {
 
         formPage.clickParcelHome();
 
@@ -150,7 +152,7 @@ public class PathsToPaymentPage extends Base{
     @Test
     @Tag("InvoicePath")
     @DisplayName("CompanyInPolandInvoicePath")
-    public void companyInPolandInvoice () {
+    public void companyInPolandInvoice () throws InterruptedException {
 
         formPage.clickParcelHome();
         formPage.clickC();
@@ -162,11 +164,21 @@ public class PathsToPaymentPage extends Base{
 
         senderForm.ClickCompanyInPoland();
 
-        senderForm.fillNipCode("6793087624");
+        companyInPolandForm.fillCompanyName(" inpostt");
 
-        senderForm.fillCompanyFlatNo("2");
+        companyInPolandForm.fillZipCode("30130");
 
-        senderForm.fillCompanyEmail(" inpost@inpost.pl");
+        companyInPolandForm.clickTown();
+
+        companyInPolandForm.clickStreet();
+
+        companyInPolandForm.fillCompanyBuildingNo("3");
+
+        companyInPolandForm.fillCompanyFlatNo("2");
+
+        companyInPolandForm.fillCompanyEmail(" inpost@inpost.pl");
+
+        companyInPolandForm.fillNipCode("6793087624");
 
         consent.check();
 
@@ -175,6 +187,110 @@ public class PathsToPaymentPage extends Base{
         summaryPage.clickPayButton();
 
         paymentPage.clickVisa();
+
+    }
+
+    @Test
+    @Tag("InvoicePath")
+    @DisplayName("individualCustomerInvoicePath")
+    public void individualCustomerInvoice () throws InterruptedException {
+
+        formPage.clickParcelHome();
+        formPage.clickC();
+
+        recipientForm.fillParcelToHomeRecepiantForm();
+        senderForm.fillSenderForm();
+
+        senderForm.clickInvoiceCHeckMark();
+
+        senderForm.clickIndividualCustomerCheckMark();
+
+        individualCustomerForm.fillName("inpost");
+
+        individualCustomerForm.fillZipCode("30130");
+
+        individualCustomerForm.clickTown();
+
+        individualCustomerForm.clickStreet();
+
+        individualCustomerForm.fillBuildingNo("3");
+
+        individualCustomerForm.fillFlatNo("2");
+
+        individualCustomerForm.fillEmail(" inpost@inpost.pl");
+
+        consent.check();
+
+        consent.clickSummaryButton();
+
+        summaryPage.clickPayButton();
+
+        paymentPage.clickVisa();
+
+    }
+
+    @Test
+    @Tag("InvoicePath")
+    @DisplayName("ForeignCompanyInvoice")
+    public void ForeignCompanyInvoice () throws InterruptedException {
+
+        formPage.clickParcelHome();
+        formPage.clickC();
+
+        recipientForm.fillParcelToHomeRecepiantForm();
+        senderForm.fillSenderForm();
+
+        senderForm.clickInvoiceCHeckMark();
+
+        senderForm.clickForeignCompanyCheckMark();
+
+      //  foreignCompanyForm.fillNipCode("3902");
+
+        foreignCompanyForm.fillCompanyName("bilbao");
+
+      //  foreignCompanyForm.clickCountry();
+
+        foreignCompanyForm.fillZipCode("12432");
+
+        foreignCompanyForm.fillTown(" njuJork");
+
+        foreignCompanyForm.fillStreet(" Krakowska ");
+
+        foreignCompanyForm.fillBuildingNo("2");
+
+        foreignCompanyForm.fillCompanyFlatNo("12");
+
+        foreignCompanyForm.fillCompanyEmail(" małpa@szynpans.goryl");
+
+        consent.check();
+
+        consent.clickSummaryButton();
+
+        summaryPage.clickPayButton();
+
+        paymentPage.clickVisa();
+
+    }
+
+
+    @Test
+    @Tag("InvoicePath")
+    @DisplayName("ForeignCompanyInvoice")
+    public void voice () throws InterruptedException {
+
+        formPage.clickParcelHome();
+        formPage.clickC();
+
+        recipientForm.fillParcelToHomeRecepiantForm();
+        senderForm.fillSenderForm();
+
+        senderForm.clickInvoiceCHeckMark();
+
+        senderForm.clickForeignCompanyCheckMark();
+
+        foreignCompanyForm.clickCountry();
+
+        foreignCompanyForm.fillZipCode("12432");
 
     }
 
