@@ -21,12 +21,12 @@ public class Payment extends Base {
     public void closeCookies() {
         Base.driver.navigate().to("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
         Base.driver.manage().deleteAllCookies();
-        formPage.clickCookies();
+
+      //  formPage.clickCookies();  // popup z cookies zakomentowany bo dziś został wyłączony
         try {
             formPage.closeBottomCookiesPopup();
         } catch (Exception e) {
         }
-        ;
     }
 
     @Test
@@ -450,6 +450,7 @@ paymentPage.clickIPKO();
         testBankPage.clickConfirmPayment();
 
         formPage.clickCookies();
+
         transactionSummaryPage.checkRefreshButton();
         transactionSummaryPage.clickDownloadLabel();
 

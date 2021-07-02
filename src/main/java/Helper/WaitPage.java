@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitPage {
 
-    WebDriverWait webDriverWait = new WebDriverWait(Base.driver, 10 );
+    WebDriverWait webDriverWait = new WebDriverWait(Base.driver, 7 );
 
     public void waitUntilElement (WebElement element) {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));

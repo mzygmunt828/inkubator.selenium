@@ -46,8 +46,9 @@ private WebElement headline;
                     break;
                 }
             }
-
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
     }
 }
