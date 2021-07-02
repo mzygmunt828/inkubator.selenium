@@ -232,45 +232,45 @@ public class PathsToPaymentPage extends Base{
 
     }
 
-//    @Test
-//    @Tag("InvoicePath")
-//    @DisplayName("ForeignCompanyInvoice")
-//    public void ForeignCompanyInvoice () throws InterruptedException {
-//
-//        formPage.clickParcelHome();
-//        formPage.clickC();
-//
-//        recipientForm.fillParcelToHomeRecepiantForm();
-//        senderForm.fillSenderForm();
-//
-//        senderForm.clickInvoiceCHeckMark();
-//
-//        senderForm.clickForeignCompanyCheckMark();
-//
-//        foreignCompanyForm.fillCompanyName("bilbao");
-//
-//        foreignCompanyForm.fillNipCode();
-//
-//       // foreignCompanyForm.clickCountry();
-//
-//        foreignCompanyForm.fillZipCode("12432");
-//
-//        foreignCompanyForm.fillTown(" njuJork");
-//
-//        foreignCompanyForm.fillStreet(" Krakowska ");
-//
-//        foreignCompanyForm.fillBuildingNo("2");
-//
-//        foreignCompanyForm.fillCompanyFlatNo("12");
-//
-//        foreignCompanyForm.fillCompanyEmail(" małpa@szynpans.goryl");
-//
-//        consent.check();
-//
-//        consent.clickSummaryButton();
-//
-//        summaryPage.clickPayButton();
-//
-//        paymentPage.clickVisa();
-//    }
+    @Test
+    @Tag("InvoicePath")
+    @DisplayName("ForeignCompanyInvoice")
+    public void ForeignCompanyInvoice () throws InterruptedException {
+
+        formPage.clickParcelHome();
+        formPage.clickC();
+
+        recipientForm.fillParcelToHomeRecepiantForm();
+        senderForm.fillSenderForm();
+
+        senderForm.clickInvoiceCHeckMark();
+
+        senderForm.clickForeignCompanyCheckMark();
+
+        foreignCompanyForm.fillCompanyName("bilbao");
+
+        foreignCompanyForm.fillNipCode();
+
+       // foreignCompanyForm.clickCountry();
+
+        foreignCompanyForm.fillZipCode("12432");
+
+        foreignCompanyForm.fillTown(" njuJork");
+
+        foreignCompanyForm.fillStreet(" Krakowska ");
+
+        foreignCompanyForm.fillBuildingNo("2");
+
+        foreignCompanyForm.fillCompanyFlatNo("12");
+
+        foreignCompanyForm.fillCompanyEmail(" małpa@szynpans.goryl");
+
+        consent.check();
+
+        consent.clickSummaryButton();
+
+        summaryPage.clickPayButton();
+
+        paymentPage.clickVisa();
+    }
 }
