@@ -199,6 +199,7 @@ public class PathsToPaymentPage extends Base{
         formPage.clickC();
 
         recipientForm.fillParcelToHomeRecepiantForm();
+
         senderForm.fillSenderForm();
 
         senderForm.clickInvoiceCHeckMark();
