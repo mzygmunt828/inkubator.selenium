@@ -35,7 +35,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToParcel")
-    public void EasyPathWithSizeA() throws InterruptedException {
+    public void EasyParcelToParcelPathWithSizeA() throws InterruptedException {
 
         formPage.clickA();
 
@@ -53,7 +53,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToParcel")
-    public void EasyPathWithSizeB() throws InterruptedException {
+    public void EasyParcelToParcelPathWithSizeB() throws InterruptedException {
 
         formPage.clickB();
 
@@ -71,7 +71,7 @@ public class PathsToPaymentPage extends Base{
 
     @Test
     @Tag("ParcelToParcel")
-    public void EasyPathWithSizeC() throws InterruptedException {
+    public void EasyParcelToParcelPathWithSizeC() throws InterruptedException {
 
         formPage.clickC();
 
@@ -270,7 +270,5 @@ public class PathsToPaymentPage extends Base{
         summaryPage.clickPayButton();
 
         paymentPage.clickVisa();
-
     }
-
 }
